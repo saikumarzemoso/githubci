@@ -57,7 +57,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Log image info
-        run: echo "Image tags: ${{ steps.meta.outputs.tags }}"
+        run: echo images tags ${{ steps.meta.outputs.tags }}
       
       - name: List local Docker images
         run: docker images
