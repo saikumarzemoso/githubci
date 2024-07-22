@@ -76,4 +76,4 @@ jobs:
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
 
       - name: Run Docker container
-        run: echo ${{ secrets.TOKEN }} | docker login ghcr.io -u saikumarzemoso --password-stdin && docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHORT_SHA }} && docker run -d --name my-container ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHORT_SHA }}
+        run: echo ${{ secrets.TOKEN }} | docker login ghcr.io -u saikumarzemoso --password-stdin && docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHORT_SHA }} && docker run -d --name my-container-${{ env.COMMIT_SHORT_SHA }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHORT_SHA }}
